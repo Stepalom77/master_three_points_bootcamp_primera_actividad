@@ -4,7 +4,7 @@ services:
 
   bootcamp_api:
     container_name: bootcamp_project
-    image: stepalom/bootcamp_project:0.0.2
+    image: stepalom/bootcamp_project:0.0.4
     build:
       context: .
     ports:

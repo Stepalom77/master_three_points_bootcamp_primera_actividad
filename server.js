@@ -28,6 +28,10 @@ db.once("open", function () {
   console.log("Connected successfully");
 });
 
+//Routes
+const lenguajesRoutes = require('./server/routes/lenguajesRoutes')
+app.use('/api/v1', lenguajesRoutes);
+
 app.get('/', (req, res) => {
     res.send('Servidor en linea ✅');
   })
