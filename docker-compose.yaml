@@ -4,7 +4,7 @@ services:
 
   bootcamp_api:
     container_name: bootcamp_project
-    image: stepalom/bootcamp_project:0.0.1
+    image: stepalom/bootcamp_project:0.0.2
     build:
       context: .
     ports:
@@ -13,17 +13,12 @@ services:
       - PORT=2000
       - ME_CONFIG_MONGODB_ADMINUSERNAME=root
       - ME_CONFIG_MONGODB_ADMINPASSWORD=example
-      - ME_CONFIG_MONGODB_URL=mongodb://root:example@mongo:27017/
-
+      - MONGODB_CONNSTRING=mongodb://root:example@mongodb
     depends_on:
-      - mongo_data
-  mongo_data:
-    container_name: mongo_db
+      - mongodb
+  mongodb:
     image: mongo
     restart: always
-    hostname: host-mongo
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-    ports:
-      - 27017:27017
