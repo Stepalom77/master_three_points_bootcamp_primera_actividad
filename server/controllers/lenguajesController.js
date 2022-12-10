@@ -28,9 +28,28 @@ const lenguaje = require('../models/lenguajes')
          return res.status(200).json(lenguajeSearched);
      };
 
+     const createLenguaje = async (req, res) => {
+        let lenguajeCreated = null;
+        let savedLenguaje = null;
+        let { nombre, tipo,  año } = req.body
+        try{
+           lenguajeCreated = await lenguaje.create({
+               nombre,
+               tipo,
+               año
+           })
+           savedLenguaje = await lenguajeCreated.save()
+        } catch (err) {
+            console.error(err);
+            return res.status(400).json({message: 'Huvo un error'})
+        };
+        return res.status(201).json(savedLenguaje);
+    };
+
      module.exports = {
         getAll: getLenguajes,
-        getOne: getLenguaje
+        getOne: getLenguaje,
+        create: createLenguaje,
      }
 
  
