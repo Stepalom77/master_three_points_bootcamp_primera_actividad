@@ -66,11 +66,30 @@ const lenguaje = require('../models/lenguajes')
         return res.status(200).json(lenguajeUpdated);
     };
 
+    const deleteLenguaje = async (req, res) => {
+        let lenguajeDeleted = null;
+        let lenguajeId = req.params.id;
+        let lenguajeSearched = null;
+        try {
+           lenguajeSearched =  await lenguaje.findById(lenguajeId);
+           lenguajeDeleted = await  lenguajeSearched.remove()
+        } catch (err) {
+            console.error(err);
+            if(!lenguajeSearched) {
+                return res.status(404).json({message: 'Error, el lenguaje que estas tratando de eliminar no existe'})
+            } else {
+                return res.status(400).json({message: 'Huvo un error'})
+            }
+        };
+        return res.status(204).json({message: 'Lenguaje borrado'});
+    }
+
      module.exports = {
         getAll: getLenguajes,
         getOne: getLenguaje,
         create: createLenguaje,
         update: updateLenguaje,
+        delete: deleteLenguaje
      }
 
  
