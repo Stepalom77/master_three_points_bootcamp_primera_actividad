@@ -57,12 +57,11 @@ const lenguaje = require('../models/lenguajes')
            })
         } catch (err) {
             console.error(err);
-            if (!lenguajeSearched) {
-                return res.status(404).json({message: 'Error, el lenguaje que estas tratando de modificar no existe'})
-            } else {
-                return res.status(400).json({message: 'Huvo un error'})
-            };
+            return res.status(400).json({message: 'Huvo un error'})
         };
+        if(!lenguajeSearched){
+            return res.status(201).json(lenguajeUpdated)
+        }
         return res.status(200).json(lenguajeUpdated);
     };
 
@@ -76,12 +75,12 @@ const lenguaje = require('../models/lenguajes')
         } catch (err) {
             console.error(err);
             if(!lenguajeSearched) {
-                return res.status(404).json({message: 'Error, el lenguaje que estas tratando de eliminar no existe'})
+                return res.status(204).json({message: 'Error, el lenguaje que estas tratando de eliminar no fue encontrado'})
             } else {
                 return res.status(400).json({message: 'Huvo un error'})
             }
         };
-        return res.status(204).json({message: 'Lenguaje borrado'});
+        return res.status(200).json({message: 'Lenguaje borrado'});
     }
 
      module.exports = {
