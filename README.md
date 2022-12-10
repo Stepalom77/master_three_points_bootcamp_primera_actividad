@@ -8,7 +8,7 @@ Crear una API sencilla con Node.js, conectada a una base de datos en MongoDB y d
 - Clonar el repositorio.
 - Abrir el proyecto en un IDE.
 - Instalar los paquetes ejecutando npm install en la terminal.
-- Para correr el proyecto en localhost, ejecutar docker-compose en la terminal.
+- Para correr el proyecto en localhost, ejecutar docker-compose up en la terminal.
 
 # Rutas de la API
 
