@@ -1,14 +1,14 @@
 # Primera actividad del master Three Points School
 Crear una API sencilla con Node.js, conectada a una base de datos en MongoDB y dockerizarla con Docker.
 
+## Proyecto: API de lenguajes de programación
+
 # Cómo usar este proyecto
 
 1. Clonar el repositorio.
 2. Abrir el proyecto en un IDE.
 3. Instalar los paquetes ejecutando npm install en la terminal.
 4. Para correr el proyecto en localhost, ejecutar docker-compose en la terminal.
-
-# Projecto: API de lenguajes de programación
 
 # Rutas de la API
 
